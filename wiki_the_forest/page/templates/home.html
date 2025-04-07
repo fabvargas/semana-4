@@ -24,29 +24,29 @@
     
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         
-          <a class="navbar-brand" href="menuprincipal_wiki.html" id="fuente">The Forest Wiki</a>
+          <a class="navbar-brand" href="{% url 'home' %}" id="fuente">The Forest Wiki</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" href="menuprincipal_wiki.html">Inicio</a>
+                <a class="nav-link" href="{% url 'home' %}">Inicio</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="forowiki.html">Foro</a>
+                <a class="nav-link" href="{% url 'foro' %}">Foro</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="https://www.google.com/maps/place/R%C3%ADo+Imperial+460,+Valle+Grande,+Lampa,+Regi%C3%B3n+Metropolitana/@-33.3295809,-70.751195,17z/data=!3m1!4b1!4m5!3m4!1s0x9662bf62531dc747:0xc0b4aee73c3b9373!8m2!3d-33.3295854!4d-70.7490063?hl=es-CL">Dirección</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="registrase_wiki.html">Registrarse</a>
+                  <a class="nav-link" href="{% url 'registrarse' %}">Registrarse</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="inicio_sesion_wiki.html">Iniciar sesion</a>
+                  <a class="nav-link" href="{% url 'inicio_sesion' %}">Iniciar sesion</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="micuentatf.html">Mi Cuenta</a>
+                  <a class="nav-link" href="{% url 'mi_cuenta' %}">Mi Cuenta</a>
                 </li>
             </ul>
             <form class="d-flex" id="separarsearch" >
@@ -85,49 +85,49 @@
           <div class="contenedor-carousel">
             <div class="carousel">
               <div class="pelicula">
-                <a href="Animales.html"><img src={% static "img_wiki/animal2.png" %} alt=""></a>
+                <a href="{% url 'animales' %}"><img src={% static "img_wiki/animal2.png" %} alt=""></a>
                 <center>
                   <p style="color: white;">Animales</p>
                 </center>
               </div>
               <div class="pelicula">
-                <a href="Lugarestf.html"><img src={% static "img_wiki/mapaforest1.png"%} alt=""></a>
+                <a href="{% url 'lugares' %}"><img src={% static "img_wiki/mapaforest1.png"%} alt=""></a>
                 <center>
                   <p style="color: white;">Mapa</p>
                 </center>
               </div>
               <div class="pelicula">
-                <a href="Enemigos.html"><img src={% static "img_wiki/enemigosforest1.png"%} alt=""></a>
+                <a href="{% url 'enemigos' %}"><img src={% static "img_wiki/enemigosforest1.png"%} alt=""></a>
                 <center>
                   <p style="color: white;">Enemigos</p>
                 </center>
               </div>
               <div class="pelicula">
-                <a href="Construcciones.html"><img src={% static "img_wiki/buildings.png"%} alt=""></a>
+                <a href="{% url 'construccion' %}"><img src={% static "img_wiki/buildings.png"%} alt=""></a>
                 <center>
                   <p style="color: white;">Construcciones</p>
                 </center>
               </div>
               <div class="pelicula">
-                <a href="Flora.html"><img src={% static "img_wiki/plantaforest.png"%} alt=""></a>
+                <a href="{% url 'flora' %}"><img src={% static "img_wiki/plantaforest.png"%} alt=""></a>
                 <center>
                   <p style="color: white;">Plantas</p>
                 </center>
               </div>
               <div class="pelicula">
-                <a href="Armas.html"><img src={% static "img_wiki/armasthf1.png"%} alt=""></a>
+                <a href="{% url 'flora' %}"><img src={% static "img_wiki/armasthf1.png"%} alt=""></a>
                 <center>
                   <p style="color: white;">Armas</p>
                 </center>
               </div>
               <div class="pelicula">
-                <a href="Consumibles.html"><img src={% static "img_wiki/consumibles.png"%} alt=""></a>
+                <a href="{% url 'consumibles' %}"><img src={% static "img_wiki/consumibles.png"%} alt=""></a>
                 <center>
                   <p style="color: white;">Consumibles</p>
                 </center>
               </div>
               <div class="pelicula">
-                <a href="historia.html"><img src={% static "img_wiki/Storytf.png"%} alt=""></a>
+                <a href="{% url 'historia' %}"><img src={% static "img_wiki/Storytf.png"%} alt=""></a>
                 <center>
                   <p style="color: white;">Historia</p>
                 </center>

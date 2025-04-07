@@ -16,3 +16,6 @@ def inicio_sesion(request):
 
 def mi_cuenta(request):
     return render(request, 'micuentatf.html')
+
+def recuperar_contraseña(request):
+    return render(request, 'recuperarcontra.html')
