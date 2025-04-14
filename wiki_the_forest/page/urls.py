@@ -11,5 +11,7 @@ urlpatterns = [
     path('mi_cuenta/', views.mi_cuenta , name='mi_cuenta'),
     path('recuperar_contraseña/', views.recuperar_contraseña , name='recuperar_contraseña'),
 
-    
+    path('registrar_usuario/', views.registrar_usuario , name='registrar_usuario'),
+    path('login/', views.login , name='login'),
+    path('pass_recovery/', views.pass_recovery , name='pass_recovery'),
 ]

@@ -76,12 +76,20 @@ WSGI_APPLICATION = 'wiki_the_forest.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+import oracledb
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.oracle',
+        'NAME': 'ORCLCDB',  # Aquí puedes poner el nombre de tu base de datos
+        'USER': 'SYSTEM',  # Tu usuario de base de datos
+        'PASSWORD': 'Oraclecloude123',  # Tu contraseña
+        'HOST': '127.0.0.1',  # La dirección de tu servidor Oracle (127.0.0.1 si es local)
+        'PORT': '1521',  # Puerto del listener (por defecto es 1521)
+       
     }
 }
+
 
 
 # Password validation
