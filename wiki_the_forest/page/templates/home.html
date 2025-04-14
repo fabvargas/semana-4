@@ -42,12 +42,24 @@
               <li class="nav-item">
                   <a class="nav-link" href="{% url 'registrarse' %}">Registrarse</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'inicio_sesion' %}">Iniciar sesion</a>
-                </li>
+
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'mi_cuenta' %}">Mi Cuenta</a>
                 </li>
+
+                {% if user_email %}
+
+                <li class="nav-item">
+                  <a class="nav-link" style="color: yellow;" href="{% url 'logout'%}">Cerrar sesion {{user_email}}</a>
+                </li>
+                
+                {% else %}
+
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'inicio_sesion' %}">Iniciar sesion</a>
+                </li> 
+                {% endif %}
+
             </ul>
             <form class="d-flex" id="separarsearch" >
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

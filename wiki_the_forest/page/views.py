@@ -1,5 +1,5 @@
 import json
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from django.contrib.auth.hashers import make_password, check_password
@@ -8,7 +8,8 @@ from .models import User
 # Create your views here.
 
 def home(request):
-    return render(request, 'home.html')
+    user_email = request.session.get('user_email',None)
+    return render(request, 'home.html', {'user_email': user_email})
 
 def foro(request):
     return render(request, 'forowiki.html')
@@ -63,13 +64,20 @@ def login(request):
 
             email = data.get('email')
             password = data.get('contrasena')
+            
+          
 
             if not email or not password:
                 return JsonResponse({'success': False, 'error': 'Todos los campos son obligatorios.'}, status=400)
 
             user = User.objects.filter(email=email).first()
+            
 
             if user and check_password(password, user.password):
+                
+                request.session['user_id'] = user.user_id 
+                request.session['user_email'] = user.email
+                
                 return JsonResponse({'success': True})
             else:
                 return JsonResponse({'success': False, 'error': 'Credenciales incorrectas.'}, status=401)
@@ -97,7 +105,8 @@ def pass_recovery(request):
                 return JsonResponse({'success': False, 'error': 'Usuario no encontrado.'}, status=404)
 
             # Hashear la nueva contraseña y guardarla
-            user.password = make_password(nueva_contrasena)
+            hashed_password = make_password(nueva_contrasena)
+            user.password = hashed_password
             user.save()
 
             return JsonResponse({'success': True, 'message': 'Contraseña actualizada correctamente.'})
@@ -106,3 +115,8 @@ def pass_recovery(request):
             return JsonResponse({'success': False, 'error': 'Datos inválidos.'}, status=400)
 
     return JsonResponse({'success': False, 'error': 'Método no permitido.'}, status=405)
+
+
+def logout(request):
+    request.session.flush()
+    return redirect('home')
